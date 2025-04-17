@@ -3,16 +3,18 @@
     <h2>Answer the Questions</h2>
     <div class="container">
         <div class="leftside-menu">
-            <p style="cursor: pointer;" onclick="toggleMenu()">Classes</p>
+            <p style="cursor: pointer;">Classes</p>
             <ul id="menu-ul">
-                <li><a href="mathStudents.html">Mathematics</a></li>
-                <li><a href="scienceStudent.html">Science</a></li>
-                <li><a href="englishStudent.html">English</a></li>
+                <li>Mathematics</li>
+                <li>Science</li>
+                <li>English</li>
                 <li><a href="index.html">Home</a></li>
 
             </ul>
         </div>
-        <div class="question-container-student" id="student-questions"  style="margin-left: 30px;">
+
+
+        <div class="question-container-student"  style="margin-left: 30px;">
            
             <div class="question-box" *ngFor = "let value of problems;let i = index">
 
@@ -23,11 +25,12 @@
             </div>
 
 
-</div>
+        </div>
 
         <div class="task-maker-container">
             <div class="task-creation-wizard">
                 <h2>Results</h2>
+                
                 <div *ngIf="submitData">
                     <div *ngFor="let value of problems; let i = index">
                         <div *ngIf="value.answer == value.ans">
@@ -40,8 +43,9 @@
                         </div>
                     </div>
                 </div>
+
                 <button id="submit-answers"(click)= "submitAns()">Submit Answers</button>
-                <button id="restart">Restart Quiz</button>
+                <button id="restart" (click) = "restart()">Restart Quiz</button>
             </div>
         </div>
     </div>7

@@ -17,8 +17,11 @@ export class TeacherLoginComponent {
   operator: string='';
   Questions: Questions[] = []
 
+ 
+
   ngOnInit() {
     let queData:any = localStorage.getItem("Questions");
+    
     if(queData) {
       this.Questions = JSON.parse(queData);
     }
@@ -31,6 +34,7 @@ export class TeacherLoginComponent {
     @author      Gayathri
     @CreatedOn   08/04/2025
   */
+
   createQuestion(){
     try{
       if (!this.num1 || !this.num2 || !this.operator) {
@@ -49,6 +53,7 @@ export class TeacherLoginComponent {
       console.log("questionData", questionData)
   
       this.Questions.push(questionData);
+
       localStorage.setItem("Questions", JSON.stringify(this.Questions));
   
       this.clearInputData()

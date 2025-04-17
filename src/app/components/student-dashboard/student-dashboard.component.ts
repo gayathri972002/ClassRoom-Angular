@@ -17,6 +17,7 @@ export class StudentLoginComponent {
   operator : string='';
   problems:Questions[] =[];
   answer : string[]  = [];
+
   submitData :boolean =false ;
 
 
@@ -26,39 +27,47 @@ export class StudentLoginComponent {
     this.problems = JSON.parse(data);
     console.log(this.problems);
   }
-
+  clearInputData() {
+    this.num1 = undefined
+    this.num2 = undefined
+    this.operator = ""
+  }
 
   submitAns(){
    let allAnswered = true ;
+   
 
    this.problems.forEach((value ,index ) =>
     {
-      let studentAnswer = this.answer
+      
       if(!this.answer[index]){
-        console.log(value)
+      
         allAnswered = false;
       }
+
     });
     
     if(!allAnswered){
       return alert("please fill the all Questions")
     }
 
+
     this.problems = this.problems.map((val,index)=>(
       {...val,answer:this.answer[index]}));
+
     console.log(this.problems);
+    
 
     this.submitData = true
 
- let studentValue;
-    
-    this.problems.forEach((value) => {
-
-     studentValue = value.ans == value.answer
-    })
-   
 
   }
+
+  restart() {
+    this.problems = []  
+    localStorage.removeItem("Questions");
+
+  
 
 
 
@@ -68,5 +77,5 @@ export class StudentLoginComponent {
 
 
 
-
+}
 
